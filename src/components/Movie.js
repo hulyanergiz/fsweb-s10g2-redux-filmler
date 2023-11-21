@@ -8,9 +8,8 @@ const Movie = (props) => {
   const { push } = useHistory();
   const dispatch = useDispatch();
 
-  const movies = useSelector((store) => store.movies);
+  const movies = useSelector((store) => store.movieReducer.movies);
   const movie = movies.find((movie) => movie.id === Number(id));
-
   const deleteMovieHandler = () => {
     dispatch(deleteMovie(movie.id));
     push("/movies");
